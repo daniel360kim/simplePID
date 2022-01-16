@@ -24,7 +24,7 @@ double PID::updatePID(double input, double dt){
     _p = kp * error; //Proportion
     _i = ki * (_i + error * dt); //Integral
     _d = kd * ((error - pre_error) / dt);
-
+    pre_error = error;
     return ratio * (_p + _i + _d) + offset;
 }
 
